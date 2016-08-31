@@ -23,23 +23,8 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'seltzerunderscores' ); ?></a>
-	<div class="header-nav">
-			<nav id="site-navigation" class="main-navigation" role="navigation">
 
-			<h1 id="nav-text">SFS</h1><!-- Add SFS Logo -->
-			
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'seltzerunderscores' ); ?></button>
-				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-			</nav><!-- #site-navigation -->
-	</div>
-			<!-- add header image as background -->
-	<?php if ( get_header_image() ) { ?>
-			<header id="masthead" class="site-header" style="background-image: url(<?php header_image(); ?>) " role="banner">
-		<?php } else { ?>
-			<header id="masthead" class="site-header" role="banner">
-		<?php } ?>
-
-	
+	<header id="masthead" class="site-header" role="banner">
 			<div class="site-branding">
 				<?php
 				if ( is_front_page() && is_home() ) : ?>
@@ -55,10 +40,24 @@
 				<?php
 				endif; ?>
 			</div><!-- .site-branding -->
-			<div class="container-btn">
-				<a class="header-btn" href="/">Learn More</a>
-			</div>
+			<nav id="site-navigation" class="main-navigation" role="navigation">
+				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'seltzerunderscores' ); ?></button>
+				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+			</nav><!-- #site-navigation -->
 		</div>
+		<div class="header-text-container">
+			<h1 class="header-text">Seltzer Financial Services</h1>
+			<h6 class="header-text">Employee Benefits</h6>
+			<button id="header-button">Learn More</button>
+		
+
+		<div class="header-image">
+			<?php if ( get_header_image() ) : ?>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+				<img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
+			</a>
+			<?php endif; // End header image check. ?>
+		</div> <!-- #header-image -->
 	
 		
 	</header><!-- #masthead -->

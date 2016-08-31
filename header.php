@@ -26,8 +26,19 @@
 	<div class="header-nav">
 			<nav id="site-navigation" class="main-navigation" role="navigation">
 
-			<h1 id="nav-text">SFS</h1><!-- Add SFS Logo -->
+			<div class="site-logo">
+					
+					<?php if ( has_custom_logo() ) {
+							the_custom_logo();
+					 } else { ?>
+							<a href="/" id="nav-text">SFS</a><!-- Add SFS Logo -->
+					<?php } ?>
+				</a>
+			</div>
+
+
 			
+
 				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'seltzerunderscores' ); ?></button>
 				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 			</nav><!-- #site-navigation -->

@@ -822,10 +822,22 @@ a:active {
 
 }
 
-#nav-text {
+.site-logo {
 	float: left;
 	color: #00A359;
-	margin-left: 1em;
+	font-size: 2.2em;
+	font-weight: 700;
+	margin: 0.3em 0 0 1em;
+}
+
+.site-logo a:visited {
+	color: #00A359;
+}
+
+.site-logo img {
+	height: 1.2em;
+	width: auto;
+	margin-top: 0.1em;
 }
 
 .menu-topnav-container {

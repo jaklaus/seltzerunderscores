@@ -21,6 +21,13 @@
  * @uses seltzerunderscores_header_style()
  */
 function seltzerunderscores_custom_header_setup() {
+	add_theme_support( 'custom-logo', array(
+		'width' => 64,
+		'height' => 64,
+		'flex-width' => true,
+		'flex-height' => true
+		));
+
 	add_theme_support( 'custom-header', apply_filters( 'seltzerunderscores_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => 'ffffff',

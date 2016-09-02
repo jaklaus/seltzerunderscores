@@ -4,7 +4,7 @@
  * Handles toggling the navigation menu for small screens and enables TAB key
  * navigation support for dropdown menus.
  */
-( function() {
+( function($) {
 	var container, button, menu, links, subMenus, i, len;
 
 	container = document.getElementById( 'site-navigation' );
@@ -82,6 +82,33 @@
 	/**
 	 * Toggles `focus` class to allow submenu access on tablets.
 	 */
+
+	 // Adds dropdown buttons BEGIN
+
+	 function initMainNavigation( container ) {
+		// Add dropdown toggle that display child menu items.
+		container.find( '.menu-item-has-children > a, .page_item_has_children > a' ).after( '<button class="dropdown-toggle" aria-expanded="false">' + screenReaderText.expand + '</button>' );
+
+		// Toggle buttons and submenu items with active children menu items.
+		container.find( '.current-menu-ancestor > button' ).addClass( 'toggle-on' );
+		container.find( '.current-menu-ancestor > .sub-menu' ).addClass( 'toggled-on' );
+
+		container.find( '.dropdown-toggle' ).click( function( e ) {
+			var _this = $( this );
+			e.preventDefault();
+			_this.toggleClass( 'toggle-on' );
+			_this.next( '.children, .sub-menu' ).toggleClass( 'toggled-on' );
+			_this.attr( 'aria-expanded', _this.attr( 'aria-expanded' ) === 'false' ? 'true' : 'false' );
+			_this.html( _this.html() === screenReaderText.expand ? screenReaderText.collapse : screenReaderText.expand );
+		} );
+	}
+	$( ".menu-toggle" ).click(function() {
+  		initMainNavigation( $( '.main-navigation.toggled' ) );
+	});
+	
+
+	 // Adds dropdown buttons END
+
 	( function( container ) {
 		var touchStartFn, i,
 			parentLink = container.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
@@ -109,4 +136,28 @@
 			}
 		}
 	}( container ) );
-} )();
+
+	// Hide/show toggle button on scroll
+
+	var position, direction, previous;
+
+	$(window).scroll(function(){
+		if( $(this).scrollTop() >= position ){
+			direction = 'down';
+			if(direction !== previous){
+				$('.menu-toggle').addClass('hide');
+
+				previous = direction;
+			}
+		} else {
+			direction = 'up';
+			if(direction !== previous){
+				$('.menu-toggle').removeClass('hide');
+
+				previous = direction;
+			}
+		}
+		position = $(this).scrollTop();
+	});
+
+} )(jQuery);

@@ -24,31 +24,29 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'seltzerunderscores' ); ?></a>
 	<div class="header-nav">
+		<div class="site-logo">
+						<?php if ( has_custom_logo() ) {
+								the_custom_logo();
+						 } else { ?>
+								<a href="/" id="nav-text">SFS</a><!-- Add SFS Logo -->
+						<?php } ?>
+					</a>
+				</div>
+				
 			<nav id="site-navigation" class="main-navigation" role="navigation">
 
-			<div class="site-logo">
-					
-					<?php if ( has_custom_logo() ) {
-							the_custom_logo();
-					 } else { ?>
-							<a href="/" id="nav-text">SFS</a><!-- Add SFS Logo -->
-					<?php } ?>
-				</a>
-			</div>
+				
 
-
-			
-
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'seltzerunderscores' ); ?></button>
-				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'seltzerunderscores' ); ?></button>
+					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'menu_class'  => 'nav-menu') ); ?>
 			</nav><!-- #site-navigation -->
 	</div>
 			<!-- add header image as background -->
-	<?php if ( get_header_image() ) { ?>
-			<header id="masthead" class="site-header" style="background-image: url(<?php header_image(); ?>) " role="banner">
-		<?php } else { ?>
-			<header id="masthead" class="site-header" role="banner">
-		<?php } ?>
+			<?php if ( get_header_image() ) { ?>
+				<header id="masthead" class="site-header<?php if(!is_page_template('home.php')) { echo ' screen-reader-text';} ?>" style="background-image: url(<?php header_image(); ?>) " role="banner">
+			<?php } else { ?>
+				<header id="masthead" class="site-header<?php if(!is_page_template('home.php')) { echo ' screen-reader-text';} ?>" role="banner">
+			<?php } ?>
 
 	
 			<div class="site-branding">

@@ -45,6 +45,8 @@ function seltzerunderscores_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary', 'seltzerunderscores' ),
+		'mobile' => esc_html__( 'Mobile', 'seltzerunderscores' ),
+
 	) );
 
 	/*
@@ -107,7 +109,12 @@ function seltzerunderscores_scripts() {
 	// Add Google Fonts: Lato
 	wp_enqueue_style('seltzerunderscores-google-fonts', "https://fonts.googleapis.com/css?family=Lato:300,400,700,900");
 
-	wp_enqueue_script( 'seltzerunderscores-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'seltzerunderscores-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20151215', true );
+
+	wp_localize_script( 'seltzerunderscores-navigation', 'screenReaderText', array(
+		'expand'   => '<span class="screen-reader-text">' . __( 'expand child menu', 'seltzerunderscores' ) . '</span>',
+		'collapse' => '<span class="screen-reader-text">' . __( 'collapse child menu', 'seltzerunderscores' ) . '</span>',
+	) );
 
 	wp_enqueue_script( 'seltzerunderscores-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 

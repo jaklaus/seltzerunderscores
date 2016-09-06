@@ -1528,18 +1528,19 @@ a:active {
 .entry-content .continue-reading a {
 	display: inline-block;
 	margin: 1em auto;
-	padding: 0.5em 1em;
+	padding: 1em 2em;
 	font-family: "Lato", sans-serif;
 	text-decoration: none;
-	background-color: #2F2E2D;
-	color: white;
+	border: 1px solid #c3c3c3;
 }
 
 .continue-reading a:hover,
 .continue-reading a:focus,
 .entry-content .continue-reading a:hover,
 .entry-content .continue-reading a:focus {
-	opacity: 0.8;
+	border-color: #000;
+	border-width: 1px;
+	box-shadow: none;
 }
 
 .continue-reading a::after {
@@ -1606,94 +1607,6 @@ object {
 }
 
 /*--------------------------------------------------------------
-# Media
---------------------------------------------------------------*/
-.featured-image {
-	width: 100%;
-}
-.featured-image img{
-  width: 100%;
-  max-height: 20em;
-  opacity: 0.7;
-}
-
-
-.centered-image,
-.featured-image-post {
-	max-width: calc(100% + 2.8em);
-	margin: 1.5em -1.4em;
-}
-
-@media screen and (min-width: 30em) {
-	
-	.centered-image,
-	.featured-image-post {
-		max-width: calc(100% + 3.6em);
-		margin: 1.5em -1.8em;
-	}
-
-}
-@media screen and (min-width: 50em) {
-	
-	img.alignright,
-	.wp-caption.alignright {
-		margin-right: -1.5em;
-	}
-	
-	img.alignleft,
-	.wp-caption.alignleft {
-		margin-left: -1.5em;
-	}
-	
-	.centered-image {
-		max-width: calc(100% + 6em);
-		margin-right: -3em;
-		margin-left: -3em;
-	}
-	
-}
-
-@media screen and (min-width: 74em) {
-	img.alignright,
-	.wp-caption.alignright {
-		margin-right: -3em;
-	}
-	img.alignleft,
-	.wp-caption.alignleft {
-		margin-left: -3em;
-	}
-}
-
-.featured-image-post {
-	margin-top: -1.4em;
-	margin-bottom: -1.2em;
-}
-
-@media screen and (min-width: 30em) {
-	.featured-image-post {
-		margin-top: -1.8em;
-		margin-bottom: 2em;
-	}
-}
-
-@media screen and (min-width: 50em ) {
-	.featured-image-post {
-		margin-bottom: 3em;
-	}
-}
-
-.featured-image-post img {
-	display: block;
-	margin: 0 auto;
-}
-
-.featured-image-post a:hover img,
-.featured-image-post a:focus img {
-	outline: dotted;
-}
-
-
-/*--------------------------------------------------------------
 ## Captions
 --------------------------------------------------------------*/
 .wp-caption {
@@ -1714,8 +1627,6 @@ object {
 .wp-caption-text {
 	text-align: center;
 }
-
-
 
 /*--------------------------------------------------------------
 ## Galleries

@@ -41,11 +41,14 @@ function seltzerunderscores_setup() {
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
 	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size(1800, 360, true);
+	add_image_size('seltzerunderscores-small-thumb', 300, 150, true);
+
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary', 'seltzerunderscores' ),
-		'mobile' => esc_html__( 'Mobile', 'seltzerunderscores' ),
+		'footer' => esc_html__( 'Footer', 'seltzerunderscores' ),
 
 	) );
 
@@ -93,7 +96,7 @@ add_action( 'after_setup_theme', 'seltzerunderscores_content_width', 0 );
  */
 function seltzerunderscores_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'seltzerunderscores' ),
+		'name'          => esc_html__( 'Widget Area', 'seltzerunderscores' ),
 		'id'            => 'sidebar-1',
 		'description'   => esc_html__( 'Add widgets here.', 'seltzerunderscores' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',

@@ -66,6 +66,10 @@ function seltzerunderscores_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
+
+	// Add Editor Styles
+	$google_font_url = str_replace( ',', '%2C', '//fonts.googleapis.com/css?family=Lato:300,400,700' );
+	add_editor_style(array('inc/editor-style.css', $google_font_url, 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'));
 }
 endif;
 add_action( 'after_setup_theme', 'seltzerunderscores_setup' );
@@ -108,6 +112,9 @@ function seltzerunderscores_scripts() {
 
 	// Add Google Fonts: Lato
 	wp_enqueue_style('seltzerunderscores-google-fonts', "https://fonts.googleapis.com/css?family=Lato:300,400,700,900");
+
+	// Add Font Awesome
+	wp_enqueue_style( 'seltzerunderscores-font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' );
 
 	wp_enqueue_script( 'seltzerunderscores-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20151215', true );
 

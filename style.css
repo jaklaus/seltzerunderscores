@@ -291,6 +291,13 @@ h6 {
 	margin-bottom: 1rem;
 }
 
+h1 { font-size: 2.4em; }
+h2 { font-size: 2.2em; }
+h3 { font-size: 2em; }
+h4 { font-size: 1.8em; }
+h5 { font-size: 1.6em; }
+h6 { font-size: 1.4em; }
+
 p {
 	margin-bottom: 1.5em;
 }
@@ -418,8 +425,21 @@ img {
 table {
 	margin: 0 0 1.5em;
 	width: 100%;
+	text-align: left;
 }
 
+table thead {
+	background-color: #62B48A;
+	color: #fff;
+}
+
+tbody tr:nth-child(odd) {
+  background: #eee;
+}
+
+td, th {
+	padding: 0.5rem;
+}
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
@@ -505,6 +525,18 @@ textarea:focus {
 
 textarea {
 	width: 100%;
+}
+
+/*a tag button styling*/
+
+.button {
+	background-color: #62B48A;
+	color: #fff;
+	padding: 1em;
+}
+
+.dslc-bg-video-overlay:hover {
+	opacity: 0.2;
 }
 
 /*--------------------------------------------------------------
@@ -624,7 +656,7 @@ a:active {
 .nav-menu a{
 	color: #2F2E2D;
 	font-weight: 700;
-	padding: 1.6em 1.6em;
+	padding: 1.75em 1.6em;
 }
 
 .nav-menu a:hover, .nav-menu a:focus{
@@ -697,7 +729,7 @@ a:active {
 	color: #fff;
 }
 
-@media screen and (min-width: 39em) {
+@media screen and (min-width: 58em) {
 	.menu-toggle {
 		display: none;
 	}
@@ -1000,6 +1032,10 @@ a:active {
 /*--------------------------------------------------------------
 ## Global
 --------------------------------------------------------------*/
+.content-area {
+	overflow-x: hidden;
+}
+
 .site-main {
 	margin: 1.4em;
 	font-size: 0.8em;
@@ -1024,6 +1060,47 @@ a:active {
 	}
 }
 
+
+/*--------------------------------------------------------------
+## Indexes
+--------------------------------------------------------------*/
+.entry-title.index-excerpt {
+	margin-top: 2em;
+	margin-bottom: .5em;
+	font-size: 1.5em;
+}
+
+.entry-header .index-entry-meta {
+	font-size: .8em;
+}
+
+.entry-content.index-excerpt {
+	margin-top: .3em;
+}
+
+@media screen and (min-width: 30em) {
+	.entry-title.index-excerpt {
+		margin-top: 1.5em;
+		font-size: 2em;
+	}
+
+	.index-entry-meta {
+		font-size: 1em;
+	}
+
+	.index-entry-meta .byline,
+	.index-entry-meta .posted-on,
+	.index-entry-meta .comments-link {
+		display: inline-block;
+	}
+
+	.index-entry-meta .byline::after,
+	.index-entry-meta .comments-link::before {
+		content: "|";
+		padding: 0 1em;
+	}
+}
+
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
@@ -1034,10 +1111,68 @@ a:active {
 .hentry {
 	margin: 0 0 1.5em;
 }
+.entry-title {
+	text-align: center;
+}
+
+/*Post Meta*/
+
+.entry-meta {
+	text-align: center;
+	background-color: #E0E0E0;
+	padding: 2em 1.47368em;
+	font-size: 95%;
+	margin: 0 -1.47368em;
+}
+
+.author-avatar {
+	height: 60px;
+	width: 60px;
+	margin: 0 auto 1em;
+}
+
+.author-avatar img {
+	border-radius: 50%;
+}
+
+@media screen and (min-width: 50em) {
+	.author-avatar {
+		height: 100px;
+	    width: 100px;
+	    margin: 0em 1em;
+	    float: left;
+	}
+
+	.has-avatar {
+		display: inline-block;
+		width: 20em;
+	    margin: 0 auto;
+	    text-align: left;
+	}
+}
+
+@media screen and (min-width: 30em) {
+	.entry-meta {
+		margin: 0 -1.884736em;
+	}
+}
+
+@media screen and (min-width: 57em){
+	.entry-meta {
+		position: relative;
+		width: 100%;
+		width: 100vw;
+		left: 0;
+		left: calc((-100vw + 56.4em) / 2);
+		overflow: hidden;
+	}
+}
 
 .byline,
-.updated:not(.published) {
-	display: none;
+.posted-on,
+.entry-meta .comments-link {
+	display: block;
+	padding: 0;
 }
 
 .single .byline,
@@ -1056,6 +1191,106 @@ a:active {
 	margin: 0 0 1.5em;
 }
 
+.page-archive-title {
+	font-size: 2em;
+	text-align: center;
+}
+
+.page-archive-title::after {
+	display: block;
+	content: "";
+	width: 7em;
+	border-bottom: 1px solid #c3c3c3;
+	margin: 1em auto;
+}
+
+.archive-description {
+	text-align: center;
+}
+
+.entry-footer::before,
+.entry-footer::after {
+	display: block;
+	content: "";
+	width: 7em;
+	border-bottom: 1px solid #c3c3c3;
+	margin: 2em auto;
+}
+
+.entry-footer::before {
+	width: 3.5em;
+}
+
+.entry-footer,
+.index-entry-meta {
+	font-size: 95%;
+	text-align: center;
+}
+
+@media screen and (min-width: 40em) {
+	.entry-footer {
+		padding: 0 1.5em;
+	}
+}
+
+.entry-footer span {
+	margin: .5em 0;
+}
+
+.entry-footer span::after {
+	content: "|";
+	padding: 0 1em;
+}
+
+.entry-footer span:last-of-type::after {
+	content: "";
+	padding: 0;
+}
+
+.entry-footer span a,
+.index-entry-meta a {
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.continue-reading {
+	text-align: center;
+}
+
+.continue-reading a,
+.entry-content .continue-reading a {
+	display: inline-block;
+	margin: 1em auto;
+	padding: 1em 2em;
+	font-family: "Fira Sans", sans-serif;
+	text-decoration: none;
+	border: 1px solid #c3c3c3;
+}
+
+.continue-reading a:hover,
+.continue-reading a:focus,
+.entry-content .continue-reading a:hover,
+.entry-content .continue-reading a:focus {
+	border-color: #000;
+	border-width: 1px;
+	box-shadow: none;
+}
+
+.continue-reading a::after {
+	content: "…"
+}
+.continue-reading::after {
+	display: block;
+    content: "";
+    width: 7em;
+    border-bottom: 2px solid #c3c3c3;
+    margin: 4em auto 0;
+}
+
+.entry-content .continue-reading::after {
+	display: none;
+}
+
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
@@ -1065,6 +1300,10 @@ a:active {
 
 .bypostauthor {
 	display: block;
+}
+
+.comments-title {
+	font-size: 1em;
 }
 
 /*--------------------------------------------------------------

@@ -43,9 +43,9 @@
 	</div>
 			<!-- add header image as background -->
 			<?php if ( get_header_image() ) { ?>
-				<header id="masthead" class="site-header<?php if(!is_page_template('home.php')) { echo ' screen-reader-text';} ?>" style="background-image: url(<?php header_image(); ?>) " role="banner">
+				<header id="masthead" class="site-header<?php if(!is_page_template('page-landing.php')) { echo ' screen-reader-text';} ?>" style="background-image: url(<?php header_image(); ?>) " role="banner">
 			<?php } else { ?>
-				<header id="masthead" class="site-header<?php if(!is_page_template('home.php')) { echo ' screen-reader-text';} ?>" role="banner">
+				<header id="masthead" class="site-header<?php if(!is_page_template('page-landing.php')) { echo ' screen-reader-text';} ?>" role="banner">
 			<?php } ?>
 
 	

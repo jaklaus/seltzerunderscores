@@ -1,7 +1,7 @@
 <?php
 /**
  
-Template Name: Home
+Template Name: Landing Page
 
  *
  * This is the template that displays all pages by default.
@@ -17,7 +17,7 @@ Template Name: Home
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+		<main id="main" class="site-main-home" role="main">
 
 			<?php
 			while ( have_posts() ) : the_post();

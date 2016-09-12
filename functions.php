@@ -49,6 +49,7 @@ function seltzerunderscores_setup() {
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary', 'seltzerunderscores' ),
 		'footer' => esc_html__( 'Footer', 'seltzerunderscores' ),
+		'social-footer' => esc_html__( 'Social Footer', 'seltzerunderscores' ),
 
 	) );
 
@@ -71,8 +72,9 @@ function seltzerunderscores_setup() {
 	) ) );
 
 	// Add Editor Styles
+	$font_awesome_local_url = get_stylesheet_directory_uri() . '/css/font-awesome.min.css';
 	$google_font_url = str_replace( ',', '%2C', '//fonts.googleapis.com/css?family=Lato:300,400,700' );
-	add_editor_style(array('inc/editor-style.css', $google_font_url, 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'));
+	add_editor_style(array('inc/editor-style.css', $google_font_url, $font_awesome_local_url));
 }
 endif;
 add_action( 'after_setup_theme', 'seltzerunderscores_setup' );
@@ -117,7 +119,9 @@ function seltzerunderscores_scripts() {
 	wp_enqueue_style('seltzerunderscores-google-fonts', "https://fonts.googleapis.com/css?family=Lato:300,400,700,900");
 
 	// Add Font Awesome
-	wp_enqueue_style( 'seltzerunderscores-font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' );
+	// wp_enqueue_style( 'seltzerunderscores-font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' );
+
+	wp_enqueue_style('font-awesome', get_stylesheet_directory_uri() . '/css/font-awesome.min.css');
 
 	wp_enqueue_script( 'seltzerunderscores-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20151215', true );
 

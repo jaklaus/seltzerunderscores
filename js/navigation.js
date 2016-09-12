@@ -142,10 +142,12 @@
 	var position, direction, previous;
 
 	$(window).scroll(function(){
+		if (!$('.main-navigation').hasClass("toggled")) {
 		if( $(this).scrollTop() >= position ){
 			direction = 'down';
 			if(direction !== previous){
 				$('.menu-toggle').addClass('hide');
+				// $('.main-navigation.toggled').addClass('hide');
 
 				previous = direction;
 			}
@@ -153,11 +155,18 @@
 			direction = 'up';
 			if(direction !== previous){
 				$('.menu-toggle').removeClass('hide');
+				// $('.main-navigation.toggled').removeClass('hide');
 
 				previous = direction;
 			}
 		}
 		position = $(this).scrollTop();
+		}
+	});
+
+	// hide mobile menu on window resize
+	$( window ).resize(function() {
+  		$( ".main-navigation" ).removeClass( "toggled" );
 	});
 
 } )(jQuery);
